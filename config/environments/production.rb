@@ -87,4 +87,10 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  ENV['DB_HOST']="ep-polished-base-a1apw349.ap-southeast-1.aws.neon.tech"
+  ENV['DB_NAME']="ecom"
+  ENV['DB_USERNAME']="gdschanu-manhdung"
+  ENV['DB_PASSWORD']="nVCGk5jXKU3s"
+  ENV['DB_PORT']="5432"
 end
