@@ -22,8 +22,9 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV.fetch("DB_NAME") %>
-  username: <%= ENV.fetch("DB_USERNAME") %>
-  password: <%= ENV.fetch("DB_PASSWORD") %>
-  host: <%= ENV.fetch("DB_HOST") %>
-  port: <%= ENV.fetch("DB_PORT") %>
+  adapter: postgresql
+  database: ecom
+  username: gdschanu-manhdung
+  password: nVCGk5jXKU3s
+  host: ep-polished-base-a1apw349.ap-southeast-1.aws.neon.tech
+  port: 5432
