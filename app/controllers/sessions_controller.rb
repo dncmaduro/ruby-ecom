@@ -16,8 +16,8 @@ class SessionsController < ApplicationController
 
             # Tạo response JSON
             response_json = {
-            message: 'Login successful',
-            token: token
+                message: 'Login successful',
+                token: token
             }
 
             render json: response_json, status: :ok
