@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-    include RescueExceptions
-
     def login
         @user_data = JSON.parse(request.body.read)
 
