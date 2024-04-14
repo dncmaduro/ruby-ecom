@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include UserParams
+
   def create
     @user_data = JSON.parse(request.body.read)
     @user = User.new(user_params)
@@ -69,9 +71,4 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound do |exception|
     render json: { error: exception.message }, status: :not_found
   end
-
-  private
-    def user_params
-      params.require(:user).permit(:email, :password, :name, :phone, :address, :dob, :role)
-    end
 end
