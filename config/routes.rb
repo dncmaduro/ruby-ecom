@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :users
-  resources :shops
+  resources :shops do
+    resources :items
+  end
+  
 
   post ('/login'), to: 'sessions#login'
   post ('/logout'), to: 'sessions#logout'
