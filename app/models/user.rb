@@ -12,4 +12,6 @@ class User < ApplicationRecord
   validates :phone, presence: true, length: { minimum: 10 }
 
   has_secure_password
+
+  has_many :shops
 end

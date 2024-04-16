@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     @user.email = @user_data["email"]
+    @current_user = User.find_by(email: @user.email)
+    if @current_user.present?
+      head :conflict
+    end
+
     @user.password = @user_data["password"]
     @user.name = @user_data["name"]
     @user.phone = @user_data["phone"]
