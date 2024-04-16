@@ -17,7 +17,8 @@ class ItemsController < ApplicationController
             @shop = Shop.find_by(id: shop_id)
             
             if  @user.present? && @user.role == 'MANAGER' && @shop.user_id == user_id
-                @item_data = JSON.parse(request.body.read)
+                @data = JSON.parse(request.body.read)
+                @item_data = @data["item"]
                 @item = Item.new(item_params)
                 
                 @item.name = @item_data["name"]
@@ -25,7 +26,6 @@ class ItemsController < ApplicationController
                 @item.image = @item_data["image"]
                 @item.price = @item_data["price"]
                 @item.shop_id = shop_id
-                puts(@shop)
 
                 if @item.save
                     render json: @item, status: :created

@@ -27,7 +27,8 @@ class SessionsController < ApplicationController
     end
 
     def logout
-        session.delete(:user_id)
+        session[:user_id] = 0
+        session[:token] = "asbhdfsdbfiasonjdfhnbasdfnjkbhjsjiodkfjnksjaifknjsdnfjsnjdjfknjsodfkmnjsbkidofjkmnjsbnjfk"
         render json: { message: 'Logout successful' }, status: :ok
     end
 end

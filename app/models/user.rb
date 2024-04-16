@@ -7,11 +7,13 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: { with: EMAIL_REGEX, message: "Invalid email format" }
   validates :dob, presence: true
-  validates :role, inclusion: { in: VALID_ROLES, message: "Invalid role" }
+  validates :role, inclusion: { in: VALID_ROLES, message: "Invalid role" }, presence: true
   validates :address, presence: true
   validates :phone, presence: true, length: { minimum: 10 }
 
   has_secure_password
 
   has_many :shops
+  has_many :orders
+  has_and_belongs_to_many :items
 end

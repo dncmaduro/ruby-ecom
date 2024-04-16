@@ -10,8 +10,8 @@ class ShopsController < ApplicationController
         token = session[:token]
 
         if token == header_token
-            @user = User.find_by(user_id)
-            @current_shop = Shop.find_by(user_id)
+            @user = User.find_by(id: user_id)
+            @current_shop = Shop.find_by(user_id: user_id)
             if @user.present? && @user.role == 'MANAGER' && !@current_shop.present?
                 @shop_data = JSON.parse(request.body.read)
                 @shop = Shop.new(shop_params)
